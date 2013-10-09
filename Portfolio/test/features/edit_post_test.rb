@@ -32,5 +32,7 @@ feature "editing a post" do
 
     # Show successful change message
     page.text.must_include 'Post was successfully updated'
+
+    #Tested Working on 10/9/13
   end
 end
