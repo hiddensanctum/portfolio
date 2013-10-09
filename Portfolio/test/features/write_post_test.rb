@@ -17,8 +17,8 @@ feature "creating a post" do
   page.text.must_include 'Its a good day for rails'
 
   # And a success message
-
   page.text.must_include 'Post was successfully created'
 
+  #Tested Working on 10/9/13
   end
 end
