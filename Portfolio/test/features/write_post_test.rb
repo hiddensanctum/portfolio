@@ -19,6 +19,6 @@ feature "creating a post" do
   # And a success message
   page.text.must_include 'Post was successfully created'
 
-  #Tested Working on 10/9/13
+  # Tested Working on 10/9/13
   end
 end
