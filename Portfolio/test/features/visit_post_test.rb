@@ -7,6 +7,8 @@ feature "Visit Index Page of Blog" do
 
     #Checks to see if
     page.text.must_include 'Listing posts'
+
+    #Tested Working on 10/9/13
   end
 end
 
