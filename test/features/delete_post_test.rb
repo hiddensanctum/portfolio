@@ -4,6 +4,7 @@ feature "deleting a post" do
   scenario "delete the post" do
     # Visit post index page
     visit posts_path
+
     # Click on destroy
     click_on 'Destroy'
 
