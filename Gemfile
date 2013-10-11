@@ -13,7 +13,6 @@ group :production do
 end
 
 group :development, :test do
-  gem "minitest-rails"
   gem "minitest-rails-capybara"
   gem "turn"
   gem 'sqlite3'
@@ -31,6 +30,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem "minitest-rails"
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
