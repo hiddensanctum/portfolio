@@ -5,9 +5,11 @@ gem 'rails', '3.2.14'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-gem 'minitest-rails'
-gem 'minitest-rails-capybara'
+gem 'pg'
+
+group :production do
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   gem "minitest-rails"
@@ -44,3 +46,4 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+ruby '2.0.0'
