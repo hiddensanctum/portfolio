@@ -2,7 +2,6 @@
 
 <table>
   <tr>
-    <th>Comment</th>
     <th>Title</th>
     <th>Body</th>
     <th></th>
@@ -12,7 +11,6 @@
 
 <% @posts.each do |post| %>
   <tr>
-    <td><%= post.comment %></td>
     <td><%= post.title %></td>
     <td><%= post.body %></td>
     <td><%= link_to 'Show', post %></td>

@@ -11,10 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131009220408) do
+ActiveRecord::Schema.define(:version => 20131011001608) do
 
   create_table "posts", :force => true do |t|
-    t.string   "comment"
     t.string   "title"
     t.text     "body"
     t.datetime "created_at", :null => false
