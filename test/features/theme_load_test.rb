@@ -5,6 +5,5 @@ feature "Check theme is running" do
     visit root_path
     page.body.must_include 'assets/application.css'
     page.body.must_include '/assets/application.js'
-    page.body.must_include 'Two Column Portfolio Template for Bootstrap 3'
   end
 end
