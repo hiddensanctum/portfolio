@@ -3,14 +3,8 @@ require 'test_helper'
 feature "As the site owner, I want to edit a project so that I can correct typos" do
   scenario "editing an existing project" do
       # Given an existing project
-      visit projects_path
-      click_on "New project"
-      fill_in 'Name', with: "Manhattan Project"
-      fill_in 'Technologies used', with: "Nuclear"
 
-      click_on "Create Project"
-
-      visit edit_project_path(1)
+      visit edit_project_path(projects(:one))
       #visit projects_path
       #click_on "Edit"
 
@@ -25,14 +19,8 @@ feature "As the site owner, I want to edit a project so that I can correct typos
       page.text.must_include "Code Fellows Portfolio"
     end
     scenario "incorrectly editing an existing project" do
-      visit projects_path
-      click_on "New project"
-      fill_in 'Name', with: "Manhattan Project"
-      fill_in 'Technologies used', with: "Nuclear"
 
-      click_on "Create Project"
-
-      visit edit_project_path(1)
+      visit edit_project_path(projects(:one))
       fill_in "Name", with: "Q"
 
       click_on "Update Project"
