@@ -1,11 +1,11 @@
 require 'test_helper'
-  feature "Check index page of project is functioning properly" do
-    scenario "index page is loading properly" do
-      # visit index page
-      visit projects_path
+  feature "Check main page of a single project is functioning properly" do
+    scenario "project page is loading properly" do
+      # visit project page
+      visit projects_path(projects(:one))
 
-      # Check to see if the name and technology used is there
+      # Check to see if the name is correct
       page.text.must_include "Code Fellows Portfolio"
-
+      page.text.must_include "Ruby on Rails"
     end
   end
