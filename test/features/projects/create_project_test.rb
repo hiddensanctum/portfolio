@@ -5,11 +5,11 @@ require 'test_helper'
       visit projects_path
       click_on "New project"
       fill_in 'Name', with: "Manhattan Project"
-      fill_in 'Technologies used', with: "Now I am become Death, the destroyer of worlds"
+      fill_in 'Technologies used', with: "Nuclear"
 
       click_on "Create Project"
 
       page.text.must_include "Manhattan Project"
-      page.text.must_include "Now I am become Death, the destroyer of worlds"
+      page.text.must_include "Nuclear"
     end
   end
