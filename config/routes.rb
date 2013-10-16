@@ -1,4 +1,11 @@
 Portfolio::Application.routes.draw do
+  devise_for :users
+  root :to => "welcome#index"
+
+  devise_scope :user do
+    match "/sign_out" => "devise/sessions#destroy"
+  end
+
   resources :posts
   resources :projects
 

@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
+  before_filter :authenticate_user!, except: [:index, :show]
+
   def index
     @posts = Post.all
 
@@ -41,6 +43,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(params[:post])
+    current_user.posts << @post
 
     respond_to do |format|
       if @post.save
