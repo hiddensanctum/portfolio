@@ -11,7 +11,8 @@
 </p>
 <p id="author">
   <b>By:</b>
-  <%= @post.author %>
+  <%= @post.author.email %>
+
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

@@ -13,6 +13,7 @@ require "minitest/rails/capybara"
 # require "minitest/pride"
 
 def sign_in
+  puts users(:one).email
   visit new_user_session_path
   fill_in "Email", with: users(:one).email
   fill_in "Password", with: "password"

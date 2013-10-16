@@ -5,7 +5,7 @@ feature "editing a post" do
     # Log in
     sign_in
     # Create a post
-    visit posts_path
+    visit post_path(posts(:sample_posts))
 
     # Given a edit post form
     click_on 'Edit'
