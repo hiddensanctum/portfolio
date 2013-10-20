@@ -6,6 +6,7 @@ gem 'rails', '3.2.14'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'bootstrap-sass-rails'
+gem 'devise'
 
 group :production do
   gem 'rails_12factor'
@@ -13,10 +14,11 @@ group :production do
 end
 
 group :development, :test do
-  gem "minitest-rails"
-  gem "minitest-rails-capybara"
+  gem 'minitest-rails'
+  gem 'minitest-rails-capybara'
   gem "turn"
   gem 'sqlite3'
+  gem 'simplecov', :require => false
 end
 
 # Gems used only for assets and not required
