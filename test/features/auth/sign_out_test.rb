@@ -3,7 +3,7 @@ require "test_helper"
 feature "Auth::SignOut" do
   scenario "Sign out works fine" do
     # makes sure user is signed in
-    sign_in
+    sign_in(:one)
 
     # Click on sign out
     click_on "Sign Out"

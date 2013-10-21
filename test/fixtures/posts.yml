@@ -1,5 +1,17 @@
- sample_posts:
+one:
   title: Code Fellows
   body: Its a good day for rails
   author: one
   published: true
+
+two:
+  title: I love cats and dogs
+  body: Cats and Dogs will rule the world
+  author: two
+  published: true
+
+three:
+  title: Dr Seuss
+  body: Green Eggs and Ham
+  author: two
+  published: false

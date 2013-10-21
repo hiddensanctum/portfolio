@@ -1,15 +1,15 @@
 require "test_helper"
 
-feature "deleting a post" do
-  scenario "delete the post" do
+feature "editor deleting a post" do
+  scenario "editor delete the post" do
     # Sign in as an editor
-    sign_in
+    sign_in(:one)
 
     # Visit post index page
     visit posts_path
 
     # Click on destroy
-    click_on 'Destroy'
+    click_link("Destroy", href: "/posts/#{posts(:one).id}")
 
     # Shows a success message
     page.text.wont_include 'Code Fellows'

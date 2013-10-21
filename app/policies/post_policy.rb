@@ -16,7 +16,6 @@ class PostPolicy < ApplicationPolicy
   def destroy?
     if user.present?
       return true if user.editor?
-      user.id == post.author_id
     end
   end
 
@@ -28,12 +27,12 @@ class PostPolicy < ApplicationPolicy
 
   class Scope < Struct.new(:user, :scope)
     def resolve
-      if user.editor?
+      if user.present? && user.editor?
         scope.all
-      elsif user.author?
-        scope.where(author_id: user.id)
+      elsif user.present? && user.author?
+        scope.where(:author_id => user.id)
       else
-        scope.where(published: true)
+        scope.where(:published => true)
       end
     end
   end

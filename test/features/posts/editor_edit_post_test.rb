@@ -1,11 +1,11 @@
 require "test_helper"
 
-feature "editing a post" do
-  scenario "makes a new post" do
+feature "editor editing a post" do
+  scenario "editor edited a post" do
     # Log in
-    sign_in
+    sign_in(:one)
     # Create a post
-    visit post_path(posts(:sample_posts))
+    visit post_path(posts(:one))
 
     # Given a edit post form
     click_on 'Edit'

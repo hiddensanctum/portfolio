@@ -1,9 +1,9 @@
 require "test_helper"
 
-feature "creating a post" do
- scenario "works with valid data" do
+feature "editor creating a post" do
+ scenario "editor made a new post" do
   # Given an authorized user complets a new post form
-  sign_in
+  sign_in(:one)
 
   # Given a completed post form
   visit new_post_path

@@ -17,6 +17,9 @@
     <% if policy(post).update? %>
       <td><%= link_to 'Edit', edit_post_path(post) %></td>
     <% end %>
+    <% if post.published? == false && policy(post).publish?%>
+      <td><%= link_to 'Publish', post_path(post, {post: {published: true}}, method: :put) %></td>
+    <% end %>
     <% if policy(post).destroy? %>
       <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>

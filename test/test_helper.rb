@@ -12,10 +12,10 @@ require "minitest/rails/capybara"
 # Uncomment for awesome colorful output
 # require "minitest/pride"
 
-def sign_in
-  puts users(:one).email
+def sign_in(u)
+  puts users(u).email
   visit new_user_session_path
-  fill_in "Email", with: users(:one).email
+  fill_in "Email", with: users(u).email
   fill_in "Password", with: "password"
   click_on "Sign in"
 end
