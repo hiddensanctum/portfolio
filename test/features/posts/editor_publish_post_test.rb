@@ -22,5 +22,6 @@ feature "editor publish a post" do
 
     # Check to see if post is published
     page.text.must_include 'Dr Seuss'
+    page.text.wont_include 'Publish'
   end
 end
