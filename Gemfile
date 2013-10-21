@@ -20,6 +20,7 @@ group :development, :test do
   gem "turn"
   gem 'sqlite3'
   gem 'simplecov', :require => false
+  gem 'pry-rails  '
 end
 
 # Gems used only for assets and not required

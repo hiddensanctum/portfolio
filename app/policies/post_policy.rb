@@ -1,4 +1,4 @@
-class PostPolicy < ApplicationPolicy
+  class PostPolicy < ApplicationPolicy
   attr_reader :user, :post
 
   def initialize(user, post)
@@ -30,7 +30,7 @@ class PostPolicy < ApplicationPolicy
       if user.present? && user.editor?
         scope.all
       elsif user.present? && user.author?
-        scope.where(:author_id => user.id)
+        scope.where(:author_id => user.id) | scope.published
       else
         scope.where(:published => true)
       end

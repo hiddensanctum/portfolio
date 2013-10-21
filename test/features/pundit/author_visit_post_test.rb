@@ -9,7 +9,7 @@ feature "author visit index page of blog" do
 
     # Checks to see if
     page.text.must_include 'Listing posts'
-    page.text.wont_include 'Code Fellows'
+    page.text.must_include 'Code Fellows'
     page.text.must_include 'I love cats and dogs'
     page.text.must_include 'Green Eggs and Ham'
 
