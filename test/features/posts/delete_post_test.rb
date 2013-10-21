@@ -2,6 +2,9 @@ require "test_helper"
 
 feature "deleting a post" do
   scenario "delete the post" do
+    # Sign in as an editor
+    sign_in
+
     # Visit post index page
     visit posts_path
 

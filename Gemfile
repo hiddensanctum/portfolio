@@ -7,6 +7,7 @@ gem 'rails', '3.2.14'
 
 gem 'bootstrap-sass-rails'
 gem 'devise'
+gem 'pundit'
 
 group :production do
   gem 'rails_12factor'
