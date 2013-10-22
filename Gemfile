@@ -8,6 +8,8 @@ gem 'rails', '3.2.14'
 gem 'bootstrap-sass-rails'
 gem 'devise'
 gem 'pundit'
+gem 'omniauth-twitter'
+gem 'figaro'
 
 group :production do
   gem 'rails_12factor'
@@ -15,12 +17,13 @@ group :production do
 end
 
 group :development, :test do
+  gem 'launchy'
   gem 'minitest-rails'
   gem 'minitest-rails-capybara'
   gem "turn"
   gem 'sqlite3'
   gem 'simplecov', :require => false
-  gem 'pry-rails  '
+  gem 'pry-rails'
 end
 
 # Gems used only for assets and not required

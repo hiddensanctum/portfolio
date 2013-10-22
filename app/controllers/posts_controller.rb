@@ -43,6 +43,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(params[:post])
+    authorize @post
     current_user.posts << @post
 
     respond_to do |format|
@@ -60,6 +61,7 @@ class PostsController < ApplicationController
   # PUT /posts/1.json
   def update
     @post = Post.find(params[:id])
+    authorize @post
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
@@ -76,6 +78,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1.json
   def destroy
     @post = Post.find(params[:id])
+    authorize @post
     @post.destroy
 
     respond_to do |format|
