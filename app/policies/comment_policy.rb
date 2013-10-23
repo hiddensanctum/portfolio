@@ -11,29 +11,13 @@ class CommentPolicy < ApplicationPolicy
       user.author? || user.editor?
     end
   end
-
-  def update?
-    if user.present?
-      #return true if current.ip == comment.user_ip
-      user.editor?
-    end
-  end
-
-  def destroy?
-    if user.present?
-      return true if user.editor?
-    end
-  end
-
-  def approved?
-    if user.present?
-      user.editor?
-    end
-  end
+  alias_method :update?, :create?
+  alias_method :approved?, :create?
+  alias_method :destroy?, :create?
 
   class Scope < Struct.new(:user, :scope)
     def resolve
-      if user.present? && user.editor? && user.author?
+      if user.present?
         scope.all
       else
         scope.where(:approved => true)
