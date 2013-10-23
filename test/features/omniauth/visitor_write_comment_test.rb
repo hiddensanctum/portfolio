@@ -22,9 +22,10 @@ feature "visitor adds a comment" do
     click_on "Submit comment for approval"
 
     page.text.must_include "prohibited this comment from being saved"
+
   end
   scenario "visitor adds valid comment to projects" do
-    visit projects_path(projects(:one))
+    visit project_path(projects(:one))
     fill_in :comment_author, with: "troll one"
     fill_in :comment_author_url, with: "http://trollsite.example.com"
     fill_in :comment_author_email, with: "troll@example.com"
@@ -32,5 +33,15 @@ feature "visitor adds a comment" do
     click_on "Submit comment for approval"
 
     page.text.must_include "comment waiting for moderation"
+  end
+    scenario "visitor adds invalid comment to projects" do
+    visit post_path(projects(:one))
+    fill_in :comment_author, with: "troll one"
+    fill_in :comment_author_url, with: "http://trollsite.example.com"
+    fill_in :comment_content, with: "troll troll troll"
+    click_on "Submit comment for approval"
+
+    page.text.must_include "prohibited this comment from being saved"
+
   end
 end

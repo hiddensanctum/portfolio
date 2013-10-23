@@ -5,14 +5,13 @@ before_filter :load_commentable
   def create
     @comment = @commentable.comments.new(params[:comment])
 
-    respond_to do |format|
-      if @comment.save
-        format.html { redirect_to @commentable, notice: 'comment waiting for moderation.' }
-        format.json { render json: @commentable, status: :created, location: @commentable }
-      else
-        instance_variable_set("@#{@resource.singularize}".to_sym, @commentable)
-        render template: "#{@resource}/show"
-      end
+
+    if @comment.save
+       redirect_to @commentable, notice: 'comment waiting for moderation.'
+     else
+       @comments = policy_scope(@commentable.comments)
+       instance_variable_set("@#{@resource.singularize}".to_sym, @commentable)
+       render template: "#{@resource}/show"
     end
   end
 
