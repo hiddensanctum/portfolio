@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  attr_accessible :approved, :author, :author_email, :author_url, :content, :referrer, :user_agent, :user_ip, :post_id
+  attr_accessible :approved, :author, :author_email, :author_url, :content, :referrer, :user_agent, :user_ip
   scope :approved, where(approved: true)
 
   def approve!
@@ -11,5 +11,5 @@ class Comment < ActiveRecord::Base
   validates :author_email, presence:true
   validates :author_url, presence:true
 
-  belongs_to :post
+  belongs_to :commentable, polymorphic: true
 end

@@ -1,15 +1,14 @@
 Portfolio::Application.routes.draw do
 
-
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
   root :to => "welcome#index"
 
   resources :posts do
     resources :comments
   end
-  resources :projects
-
-
+  resources :projects do
+    resources :comments
+  end
 
   match "*unmatched_route", to: "application#raise_not_found"
 

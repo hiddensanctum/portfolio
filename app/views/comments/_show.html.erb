@@ -10,17 +10,17 @@
   </p>
   <p>
     <% if comment.approved? == false && policy(comment).approved? %>
-      <%= link_to 'Approve', post_comment_path(@post, comment, comment: { approved: true }), method: :put, data: { confirm: 'Are you sure you want to approve?' }%>
+      <%= link_to 'Approve',polymorphic_path([@commentable, comment], comment: { approved: true }), method: :put, data: { confirm: 'Are you sure you want to approve?' }%>
     <% end %>
   </p>
     <p>
     <% if comment.approved? && policy(comment).approved? %>
-      <%= link_to 'Disapprove', post_comment_path(@post, comment, comment: { approved: false }), method: :put, data: { confirm: 'Are you sure you want to Disapprove?' }%>
+      <%= link_to 'Disapprove',polymorphic_path([@commentable, comment], comment: { approved: false }), method: :put, data: { confirm: 'Are you sure you want to Disapprove?' }%>
     <% end %>
   </p>
   <p>
     <% if policy(comment).destroy? %>
-      <%= link_to 'Destroy', [@post, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Destroy', [@commentable, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
   </p>
 <% end %>
