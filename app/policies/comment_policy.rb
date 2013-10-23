@@ -1,9 +1,9 @@
-class PostPolicy < ApplicationPolicy
-  attr_reader :user, :post
+class CommentPolicy < ApplicationPolicy
+  attr_reader :user, :comment
 
-  def initialize(user, post)
+  def initialize(user, comment)
     @user = user
-    @post = post
+    @comment = comment
   end
 
   def create?
@@ -14,7 +14,7 @@ class PostPolicy < ApplicationPolicy
 
   def update?
     if user.present?
-      return true if user.id == post.author_id
+      #return true if current.ip == comment.user_ip
       user.editor?
     end
   end
@@ -25,7 +25,7 @@ class PostPolicy < ApplicationPolicy
     end
   end
 
-  def publish?
+  def approved?
     if user.present?
       user.editor?
     end
@@ -36,9 +36,9 @@ class PostPolicy < ApplicationPolicy
       if user.present? && user.editor?
         scope.all
       elsif user.present? && user.author?
-        scope.where(:author_id => user.id) | scope.published
+        scope.where(:author_id => user.id) | scope.approved
       else
-        scope.where(:published => true)
+        scope.where(:approved => true)
       end
     end
   end
