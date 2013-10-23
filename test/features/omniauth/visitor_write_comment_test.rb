@@ -23,4 +23,14 @@ feature "visitor adds a comment" do
 
     page.text.must_include "prohibited this comment from being saved"
   end
+  scenario "visitor adds valid comment to projects" do
+    visit projects_path(projects(:one))
+    fill_in :comment_author, with: "troll one"
+    fill_in :comment_author_url, with: "http://trollsite.example.com"
+    fill_in :comment_author_email, with: "troll@example.com"
+    fill_in :comment_content, with: "troll troll troll"
+    click_on "Submit comment for approval"
+
+    page.text.must_include "comment waiting for moderation"
+  end
 end
