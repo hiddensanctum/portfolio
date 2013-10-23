@@ -16,6 +16,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
+
     @comments = policy_scope(@post.comments)
     @comment = Comment.new
 

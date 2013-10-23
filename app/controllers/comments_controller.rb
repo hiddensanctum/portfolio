@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
 
   def update
 
-    #authorize @comment
+    authorize @comment
     @comment = Comment.find(params[:id])
     @post = @comment.post
 
@@ -39,7 +39,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @post = @comment.post
-    #authorize @post
+    authorize @post
     @comment.destroy
 
     respond_to do |format|

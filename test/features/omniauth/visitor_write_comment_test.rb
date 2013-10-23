@@ -11,7 +11,7 @@ feature "visitor adds a comment" do
     fill_in :comment_content, with: "troll troll troll"
     click_on "Submit comment for approval"
 
-    page.text.must_include "troll troll troll"
+    page.text.must_include "comment waiting for moderation"
 
   end
   scenario "visitor adds valid comment" do
