@@ -1,7 +1,5 @@
 class CommentsController < ApplicationController
 
-  before_filter :load_post_comment
-
 
   def create
     @comment = Comment.new(params[:comment])
@@ -20,10 +18,8 @@ class CommentsController < ApplicationController
   end
 
   def update
-
-    #authorize @comment
-    @comment = Comment.find(params[:id])
-    @post = @comment.post
+    load_post_comment
+    authorize @comment
 
     respond_to do |format|
       if @comment.update_attributes(params[:comment])
@@ -37,9 +33,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
-    @post = @comment.post
-    #authorize @post
+    load_post_comment
+    authorize @comment
     @comment.destroy
 
     respond_to do |format|
@@ -51,7 +46,8 @@ class CommentsController < ApplicationController
   private
 
   def load_post_comment
-
+    @comment = Comment.find(params[:id])
+    @post = @comment.post
   end
 
 end

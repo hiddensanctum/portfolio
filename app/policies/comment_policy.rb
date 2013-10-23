@@ -17,7 +17,7 @@ class CommentPolicy < ApplicationPolicy
 
   class Scope < Struct.new(:user, :scope)
     def resolve
-      if user.present?
+      if user.present? && (user.author? || user.editor?)
         scope.all
       else
         scope.where(:approved => true)
