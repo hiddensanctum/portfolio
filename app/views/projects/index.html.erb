@@ -1,12 +1,25 @@
-<% @projects.each do |project| %>
-<div class = "project" id ="<%= dom_id(project) %>"
-  <h3><%= project.name %></h3>
-  <p><%= project.technologies_used %></p>
-  <div class = "nav">
-    <%= link_to 'Destroy', project, method: :delete, data: {confirm: 'Are you sure?'} %>
-  </div>
+<div class="page-header">
+  <h1>Projects</h1>
 </div>
+
+  <% @projects.reverse_each do |project| %>
+  <div class="row">
+    <div class="col-lg-7 col-md-7">
+      <a href="#"><img class="img-responsive" src="http://placehold.it/700x300"></a>
+    </div>
+    <div class="col-lg-5 col-md-5">
+      <h3><%= link_to project.name, project %></h3>
+      <p><%= project.technologies_used %></p>
+      <%= link_to 'Edit', edit_project_path(project), :class => 'btn btn-primary' %>
+      <%= link_to 'Destroy', project, method: :delete, data: {confirm: 'Are you sure?'}, :class => 'btn btn-warning' %>
+    </div>
+  </div>
+  <br/ >
+  <% end %>
+
+
+<% if current_user.present? %>
+  <%= link_to 'New project', new_project_path, :class => 'btn btn-default' %>
 <% end %>
 
-<br />
-<%= link_to 'New project', new_project_path %>
+

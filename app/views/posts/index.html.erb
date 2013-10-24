@@ -1,35 +1,47 @@
- <h1>Listing posts</h1>
+<div class="page-header">
+<h1>Blog</h1>
+</div>
+<div class="row">
+  <div class="col-lg-8 col-md-8">
+    <% @posts.reverse_each do |post| %>
+      <id="<%= dom_id(post) %>">
+        <h3><%= post.title %></h3>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+        <div class="panel panel-default">
+          <div class="panel-body">
+          <%= post.body %> <br /><br />
 
-<% @posts.each do |post| %>
-  <tr id="<%= dom_id(post) %>">
-    <td><%= post.title %></td>
-    <td><%= post.body %></td>
-    <td><%= link_to 'Show', post %></td>
-    <% if policy(post).update? %>
-      <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <%= link_to 'Show', post, :class => 'btn btn-default' %>
+        <% if policy(post).update? %>
+          <%= link_to 'Edit', edit_post_path(post), :class => 'btn btn-primary' %>
+        <% end %>
+        <% if post.published? == false && policy(post).publish?%>
+          <%= link_to 'Publish', post_path(post, post: { published: true }), method: :put, data: { confirm: 'Are you sure you want to publish?'}, :class => 'btn btn-warning'%>
+        <% end %>
+        <% if post.published? && policy(post).publish?%>
+          <%= link_to 'Unpublish', post_path(post, post: { published: false }), method: :put, data: { confirm: 'Are you sure you want to unpublish?'}, :class => 'btn btn-warning' %>
+        <% end %>
+        <% if policy(post).destroy? %>
+          <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'%>
+        <% end %>
+        </div>
+        </div>
     <% end %>
-    <% if post.published? == false && policy(post).publish?%>
-      <td><%= link_to 'Publish', post_path(post, post: { published: true }), method: :put, data: { confirm: 'Are you sure you want to publish?' }%></td>
-    <% end %>
-    <% if post.published? && policy(post).publish?%>
-      <td><%= link_to 'Unpublish', post_path(post, post: { published: false }), method: :put, data: { confirm: 'Are you sure you want to unpublish?' }%></td>
-    <% end %>
-    <% if policy(post).destroy? %>
-      <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <% end %>
-  </tr>
-<% end %>
-</table>
 
-<br />
+    <% if current_user.present? %>
+    <%= link_to 'New Post', new_post_path, :class => 'btn btn-default'%>
+    <% end %>
+  </div>
+  <div class="col-lg-4 col-md-4">
+    <h3>Recent Posts</h3>
+    <a href="#" class="list-group-item">
+        <h4 class="list-group-item-heading"><%= @posts[0].title %></h4>
+        <p class="list-group-item-text"><%= truncate(@posts[0].body, :length => 100) %></p>
+    </a>
+    <a href="#" class="list-group-item">
+        <h4 class="list-group-item-heading"><%= @posts[1].title %></h4>
+        <p class="list-group-item-text"><%= truncate(@posts[1].body, :length => 100) %></p>
+    </a>
+  </div>
+</div>
 
-<%= link_to 'New Post', new_post_path %>

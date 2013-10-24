@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   #rescue_from ActiveRecord::RecordNotFound, with: :raise_not_found
 
   def raise_not_found
-    flash[:error] = "Sorry, we couldn't find that page. Here's the home page:"
+    #flash[:error] = "Sorry, we couldn't find that page. Here's the home page:"
     redirect_to "/404.html"
   end
 

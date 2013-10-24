@@ -1,3 +1,5 @@
+<div class="well">
+  <fieldset>
 <%= form_for(@project) do |f| %>
   <% if @project.errors.any? %>
     <div id="error_explanation">
@@ -10,15 +12,18 @@
     </div>
   <% end %>
 
-  <div class= "field">
+  <div class="form-group">
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :class => "form-control"  %>
   </div>
-  <div class= "field">
+  <div class="form-group">
     <%= f.label :technologies_used %><br/>
-    <%= f.text_field :technologies_used %>
+    <%= f.text_field :technologies_used, :class => "form-control"  %>
   </div>
-  <div class = "actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= link_to 'Back', projects_path, :class => 'btn btn-default' %>
+    <%= f.submit :class => 'btn btn-primary'%>
   </div>
-  <% end %>
+<% end %>
+</fieldset>
+</div>

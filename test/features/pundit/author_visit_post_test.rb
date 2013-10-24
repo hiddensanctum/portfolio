@@ -8,7 +8,7 @@ feature "author visit index page of blog" do
     visit posts_path
 
     # Checks to see if
-    page.text.must_include 'Listing posts'
+    page.text.must_include 'Blog'
     page.text.must_include 'Code Fellows'
     page.text.must_include 'I love cats and dogs'
     page.text.must_include 'Green Eggs and Ham'
