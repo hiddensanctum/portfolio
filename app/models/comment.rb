@@ -7,9 +7,9 @@ class Comment < ActiveRecord::Base
     save!
   end
 
-  validates :author, presence:true
-  validates :author_email, presence:true
-  validates :author_url, presence:true
+  validates :author, presence: true
+  validates :author_email, presence: true
+  validates :author_url, presence: true
 
   belongs_to :commentable, polymorphic: true
 end
