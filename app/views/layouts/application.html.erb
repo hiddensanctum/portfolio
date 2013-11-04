@@ -1,68 +1,69 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <title>James Chuang's Portfolio | Ruby on Rails Developer</title>
-    <%= stylesheet_link_tag    "application", :media => "all" %>
-    <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tags %>
-  </head>
-  <body>
-    <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">James Chuang</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="/posts">Blog</a></li>
-            <li><a href="/projects">Portfolio</a></li>
-            <li><a href="/contacts">Contact</a></li>
-
-              <% if current_user.present? %>
-                <!-- <li>Logged in as <%= current_user.email %></li> -->
-                <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-              <% else %>
-                <li><%= link_to "Sign In", new_user_session_path %></li>
-                <li><%= link_to "Sign Up", new_user_registration_path %></li>
-              <% end %>
-              <li><%= link_to image_tag("github.png", :style=>"margin-top: -10px"), "https://github.com/hiddensanctum" %></li>
-              <li><%= link_to image_tag("linkedin.png", :style=>"margin-top: -10px"), "http://www.linkedin.com/pub/james-chuang/49/249/564" %></li>
-              <li><%= link_to image_tag("twitter.png", :style=>"margin-top: -10px"), "https://twitter.com/N3dd1h" %></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container -->
-    </nav>
-
+  <title>James Chuang's Portfolio | Ruby on Rails Developer</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
     <div class="container">
-      <% flash.each do |key, value| %>
-      <div class="<%= flash_class(key) %>">
-      <%= value %>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">James Chuang</a>
       </div>
-      <% end %>
-      <%= yield %>
 
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/posts">Blog</a></li>
+          <li><a href="/projects">Portfolio</a></li>
+          <li><a href="/contacts">Contact</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user.present? %>
+          <!-- <li>Logged in as <%= current_user.email %></li> -->
+          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+          <li><%= link_to "Sign In", new_user_session_path %></li>
+          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <% end %>
+          <li><%= link_to image_tag("github.png", :style=>"margin-top: -10px"), "https://github.com/hiddensanctum" %></li>
+          <li><%= link_to image_tag("linkedin.png", :style=>"margin-top: -10px"), "http://www.linkedin.com/pub/james-chuang/49/249/564" %></li>
+          <li><%= link_to image_tag("twitter.png", :style=>"margin-top: -10px"), "https://twitter.com/N3dd1h" %></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container -->
+  </nav>
 
-      <footer>
-        <div class="row">
-          <div class="col-lg-12">
-            <p>Copyright &copy; James Chuang 2013 | Icons by <a href="http://veodesign.com/en/  ">Veodesign.com</a></p>
-          </div>
-        </div>
-      </footer>
+  <div class="container">
+    <% flash.each do |key, value| %>
+    <div class="<%= flash_class(key) %>">
+      <%= value %>
     </div>
+    <% end %>
+    <%= yield %>
 
-  </body>
+
+    <footer>
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright &copy; James Chuang 2013 | Icons by <a href="http://veodesign.com/en/  ">Veodesign.com</a></p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+</body>
 </html>
