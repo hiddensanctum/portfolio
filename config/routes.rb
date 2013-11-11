@@ -10,7 +10,7 @@ Portfolio::Application.routes.draw do
     resources :comments
   end
 
-  match "*unmatched_route", to: "application#raise_not_found"
+  #match "*unmatched_route", to: "application#raise_not_found"
 
 
   #get "welcome/index"

@@ -10,6 +10,7 @@ gem 'devise'
 gem 'pundit'
 gem 'omniauth-twitter'
 gem 'figaro'
+gem 'high_voltage'
 
 group :production do
   gem 'rails_12factor'
