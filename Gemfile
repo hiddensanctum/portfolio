@@ -10,7 +10,6 @@ gem 'devise'
 gem 'pundit'
 gem 'omniauth-twitter'
 gem 'figaro'
-gem 'high_voltage'
 gem 'bootstrap-wysihtml5-rails'
 
 group :production do
