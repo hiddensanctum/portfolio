@@ -10,7 +10,7 @@
 
           <div class="panel panel-default">
             <div class="panel-body">
-            <%= post.body %> <br /><br />
+            <%= post.body.html_safe %> <br /><br />
 
           <%= link_to 'Show', post, :class => 'btn btn-default' %>
           <% if policy(post).update? %>

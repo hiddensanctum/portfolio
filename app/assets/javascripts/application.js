@@ -11,5 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require bootstrap-wysihtml5/b3
+//= require bootstrap-wysihtml5/locales
 //= require jquery_ujs
 //= require_tree .
