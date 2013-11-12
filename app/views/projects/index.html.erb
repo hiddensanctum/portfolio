@@ -6,7 +6,7 @@
     <% @projects.reverse_each do |project| %>
     <div class="row">
       <div class="col-lg-7 col-md-7">
-        <a href="#"><img class="img-responsive" src="http://placehold.it/700x300"></a>
+        <img class="img-responsive" src= <%= "/assets/" + project.id.to_s + ".png" %>>
       </div>
       <div class="col-lg-5 col-md-5">
         <h3><%= link_to project.name, project %></h3>
