@@ -12,6 +12,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+  <% flash.each do |key, value| %>
+    <div class="container-blog">
+    <div class="<%= flash_class(key) %>">
+      <%= value %>
+    </div>
+    </div>
+  <% end %>
   <%= yield %>
 </body>
 
