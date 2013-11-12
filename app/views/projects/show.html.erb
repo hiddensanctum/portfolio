@@ -1,10 +1,12 @@
-<h2><%= @project.name %></h2>
-<div class="panel panel-default">
-  <div class="panel-body">
-    <p><b>Technologies used:</b>
-    <%= @project.technologies_used %>
+<div class = "container-blog">
+  <h2><%= @project.name %></h2>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <p><b>Technologies used:</b>
+      <%= @project.technologies_used %>
+    </div>
   </div>
-</div>
-<%= render 'comments/show' %>
+  <%= render 'comments/show' %>
 
-<%= render 'comments/form' %>
+  <%= render 'comments/form' %>
+</div>

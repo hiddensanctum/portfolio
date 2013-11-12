@@ -1,23 +1,24 @@
-<p id="notice"><%= notice %></p>
-<h1><%= @post.title %></h1>
-<div class="panel panel-default">
-  <div class="panel-body">
-    <p id="author">
-      <b>By:</b>
-      <%= @post.author.email %>
-    </p>
-    <p>
-      <b>Body:</b><br />
-      <%= @post.body %>
-    </p>
+<div class = "container-blog">
+  <p id="notice"><%= notice %></p>
+  <h1><%= @post.title %></h1>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <p id="author">
+        <b>By:</b>
+        <%= @post.author.email %>
+      </p>
+      <p>
+        <b>Body:</b><br />
+        <%= @post.body %>
+      </p>
 
+    </div>
   </div>
+  <%= render 'comments/show' %>
+
+  <%= render 'comments/form' %>
+
+
+  <%= link_to 'Edit', edit_post_path(@post), :class => 'btn btn-primary' %>
+  <%= link_to 'Back', posts_path, :class => 'btn btn-default' %>
 </div>
-<%= render 'comments/show' %>
-
-<%= render 'comments/form' %>
-
-
-<%= link_to 'Edit', edit_post_path(@post), :class => 'btn btn-primary' %>
-<%= link_to 'Back', posts_path, :class => 'btn btn-default' %>
-

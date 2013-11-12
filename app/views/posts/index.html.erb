@@ -1,47 +1,48 @@
-<div class="page-header">
-<h1>Blog</h1>
-</div>
-<div class="row">
-  <div class="col-lg-8 col-md-8">
-    <% @posts.reverse_each do |post| %>
-      <id="<%= dom_id(post) %>">
-        <h3><%= post.title %></h3>
-
-        <div class="panel panel-default">
-          <div class="panel-body">
-          <%= post.body %> <br /><br />
-
-        <%= link_to 'Show', post, :class => 'btn btn-default' %>
-        <% if policy(post).update? %>
-          <%= link_to 'Edit', edit_post_path(post), :class => 'btn btn-primary' %>
-        <% end %>
-        <% if post.published? == false && policy(post).publish?%>
-          <%= link_to 'Publish', post_path(post, post: { published: true }), method: :put, data: { confirm: 'Are you sure you want to publish?'}, :class => 'btn btn-warning'%>
-        <% end %>
-        <% if post.published? && policy(post).publish?%>
-          <%= link_to 'Unpublish', post_path(post, post: { published: false }), method: :put, data: { confirm: 'Are you sure you want to unpublish?'}, :class => 'btn btn-warning' %>
-        <% end %>
-        <% if policy(post).destroy? %>
-          <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'%>
-        <% end %>
-        </div>
-        </div>
-    <% end %>
-
-    <% if current_user.present? %>
-    <%= link_to 'New Post', new_post_path, :class => 'btn btn-default'%>
-    <% end %>
+<div class = "container-blog">
+  <div class="page-header">
+  <h1>Blog</h1>
   </div>
-  <div class="col-lg-4 col-md-4">
-    <h3>Recent Posts</h3>
-    <a href="#" class="list-group-item">
-        <h4 class="list-group-item-heading">List group item heading</h4>
-        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-    </a>
-    <a href="#" class="list-group-item">
-        <h4 class="list-group-item-heading">List group item heading</h4>
-        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-    </a>
+  <div class="row">
+    <div class="col-lg-8 col-md-8">
+      <% @posts.reverse_each do |post| %>
+        <id="<%= dom_id(post) %>">
+          <h3><%= post.title %></h3>
+
+          <div class="panel panel-default">
+            <div class="panel-body">
+            <%= post.body %> <br /><br />
+
+          <%= link_to 'Show', post, :class => 'btn btn-default' %>
+          <% if policy(post).update? %>
+            <%= link_to 'Edit', edit_post_path(post), :class => 'btn btn-primary' %>
+          <% end %>
+          <% if post.published? == false && policy(post).publish?%>
+            <%= link_to 'Publish', post_path(post, post: { published: true }), method: :put, data: { confirm: 'Are you sure you want to publish?'}, :class => 'btn btn-warning'%>
+          <% end %>
+          <% if post.published? && policy(post).publish?%>
+            <%= link_to 'Unpublish', post_path(post, post: { published: false }), method: :put, data: { confirm: 'Are you sure you want to unpublish?'}, :class => 'btn btn-warning' %>
+          <% end %>
+          <% if policy(post).destroy? %>
+            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'%>
+          <% end %>
+          </div>
+          </div>
+      <% end %>
+
+      <% if current_user.present? %>
+      <%= link_to 'New Post', new_post_path, :class => 'btn btn-default'%>
+      <% end %>
+    </div>
+    <div class="col-lg-4 col-md-4">
+      <h3>Recent Posts</h3>
+      <a href="#" class="list-group-item">
+          <h4 class="list-group-item-heading">List group item heading</h4>
+          <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+      </a>
+      <a href="#" class="list-group-item">
+          <h4 class="list-group-item-heading">List group item heading</h4>
+          <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+      </a>
+    </div>
   </div>
 </div>
-
