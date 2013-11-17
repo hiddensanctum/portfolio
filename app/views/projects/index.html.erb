@@ -20,6 +20,6 @@
 
 
   <% if current_user.present? %>
-    <%= link_to 'New project', new_project_path, :class => 'btn btn-default' %>
+    <%= link_to 'New project', new_project_path, id: "new_project_link", remote: true, :class => 'btn btn-default' %>
   <% end %>
 </div>
