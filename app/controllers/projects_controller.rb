@@ -13,13 +13,12 @@ class ProjectsController < ApplicationController
     @project = Project.new(params[:project])
 
     respond_to do |format|
+
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully added.' }
         format.js
       else
-        format.html { render action: 'new' }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-        format.js
+        format.html { render :new }
       end
     end
   end
@@ -38,15 +37,13 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
-
-    if @project.update_attributes(params[:project])
-      flash[:notice] = 'Project was successfully updated'
-      respond_to do |format|
-        format.html { redirect_to @project }
+    respond_to do |format|
+      if @project.update_attributes(params[:project])
+        format.html { redirect_to @project, notice: 'Project was successfully updated' }
         format.js
+      else
+        format.html { render :edit }
       end
-    else
-      render :edit
     end
   end
 
