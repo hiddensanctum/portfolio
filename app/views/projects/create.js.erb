@@ -1,3 +1,4 @@
-$('#new_project').remove();
-$('#new_project_link').show();
-$('#incomplete_project').append('<%= j render(@project) %>');
+$('#new_project_link').show()
+$('#project_form').remove()
+// show the new project that was added
+$('#projects:last').after('<%=j render(@project) %>')
