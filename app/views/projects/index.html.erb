@@ -1,25 +1,13 @@
 <div class = "container-blog">
-  <div class="page-header">
+  <div class="page-header" id="projects">
     <h1>Projects</h1>
   </div>
 
-    <% @projects.reverse_each do |project| %>
-    <div class="row">
-      <div class="col-lg-7 col-md-7">
-        <img class="img-responsive" src= <%= "/assets/" + project.id.to_s + ".png" %>>
-      </div>
-      <div class="col-lg-5 col-md-5">
-        <h3><%= link_to project.name, project %></h3>
-        <p><%= project.technologies_used %></p>
-        <%= link_to 'Edit', edit_project_path(project), :class => 'btn btn-primary' %>
-        <%= link_to 'Destroy', project, method: :delete, data: {confirm: 'Are you sure?'}, :class => 'btn btn-warning' %>
-      </div>
-    </div>
-    <br/ >
+  <%= render @projects %>
+
+  <div class="row">
+    <% if current_user.present? %>
+      <%= link_to 'New project', new_project_path, id: "new_project_link", remote: true, :class => 'btn btn-default' %>
     <% end %>
-
-
-  <% if current_user.present? %>
-    <%= link_to 'New project', new_project_path, id: "new_project_link", remote: true, :class => 'btn btn-default' %>
-  <% end %>
+  </div>
 </div>

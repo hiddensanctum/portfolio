@@ -12,12 +12,15 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(params[:project])
 
-    if @project.save
-      flash[:notice] = "Project has been created"
-        redirect_to @project
+    respond_to do |format|
+      if @project.save
+        format.html { redirect_to @project, notice: 'Project was successfully added.' }
+        format.js
       else
-        flash[:alert] = "Project could not be saved"
-        render :new
+        format.html { render action: 'new' }
+        format.json { render json: @project.errors, status: :unprocessable_entity }
+        format.js
+      end
     end
   end
 
@@ -36,18 +39,22 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
 
     if @project.update_attributes(params[:project])
-      redirect_to @project, notice: 'Project was successfully updated'
+      flash[:notice] = 'Project was successfully updated'
+      respond_to do |format|
+        format.html { redirect_to @project }
+        format.js
+      end
     else
       render :edit
     end
   end
 
   def destroy
-    @project = Project.find(params[:id])
-    @project.destroy
+    @project = Project.destroy(params[:id])
 
-    redirect_to @project, notice: 'Project was successfully deleted'
-
+    respond_to do |format|
+      format.html { redirect_to @project, notice: 'Project was successfully deleted' }
+      format.js
+    end
   end
-
 end
