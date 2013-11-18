@@ -1,1 +1,2 @@
-$('#project_<%= @project.id %>').hide().after('<%= j render("form") %>');
+$('#project_<%= @project.id %>').after('<%= j render("form") %>');
+$('#project_<%= @project.id %>').remove()

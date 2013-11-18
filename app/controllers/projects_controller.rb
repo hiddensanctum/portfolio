@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  before_filter :authenticate_user!, except: [:index, :show]
+
   def index
     @projects = Project.all
 
@@ -12,14 +14,13 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(params[:project])
 
-    respond_to do |format|
-
-      if @project.save
+    if @project.save
+      respond_to do |format|
         format.html { redirect_to @project, notice: 'Project was successfully added.' }
         format.js
-      else
-        format.html { render :new }
       end
+    else
+      render :new
     end
   end
 
@@ -37,14 +38,16 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
-    respond_to do |format|
-      if @project.update_attributes(params[:project])
+
+    if @project.update_attributes(params[:project])
+      respond_to do |format|
         format.html { redirect_to @project, notice: 'Project was successfully updated' }
         format.js
-      else
-        format.html { render :edit }
       end
+    else
+        render :edit
     end
+
   end
 
   def destroy

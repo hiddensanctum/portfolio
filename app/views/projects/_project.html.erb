@@ -1,11 +1,13 @@
 <div class="row" id="<%= dom_id(project) %>">
   <div class="col-lg-7 col-md-7">
-    <img class="img-responsive" src= <%= "/assets/" + project.id.to_s + ".png" %>>
+<!--     <img class="img-responsive" src= <%= "/assets/" + project.id.to_s + ".png" %>> -->
   </div>
   <div class="col-lg-5 col-md-5">
     <h3><%= link_to project.name, project %></h3>
     <p><%= project.technologies_used %></p>
-    <%= link_to 'Edit', edit_project_path(project), remote: true, :class => 'btn btn-primary' %>
-    <%= link_to 'Destroy', project, method: :delete, data: {confirm: 'Are you sure?'}, remote: true, :class => 'btn btn-warning' %>
+    <% if current_user.present? %>
+      <%= link_to 'Edit', edit_project_path(project), remote: true, :class => 'btn btn-primary' %>
+      <%= link_to 'Destroy', project, method: :delete, data: {confirm: 'Are you sure?'}, remote: true, :class => 'btn btn-warning' %>
+    <% end %>
   </div>
 </div>
