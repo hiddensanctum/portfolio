@@ -12,6 +12,8 @@ gem 'omniauth-twitter'
 gem 'figaro'
 gem 'bootstrap-wysihtml5-rails'
 gem 'carrierwave'
+gem 'rmagick'
+gem 'fog'
 
 group :production do
   gem 'rails_12factor'
