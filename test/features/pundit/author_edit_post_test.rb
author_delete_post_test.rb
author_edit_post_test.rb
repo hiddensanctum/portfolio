@@ -3,7 +3,7 @@ require "test_helper"
 feature "author editing a post" do
   scenario "author edit a post" do
     # Sign in as an author
-    sign_in(:two)
+    sign_in(:au)
 
     # Visit post index page
     visit posts_path

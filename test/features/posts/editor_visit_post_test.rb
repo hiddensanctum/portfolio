@@ -3,7 +3,7 @@ require "test_helper"
 feature "editor visit index page of blog" do
   scenario "editor navigates to blog" do
     # sign in as editor
-    sign_in(:one)
+    sign_in(:ed)
     # navigate to main index of blog
     visit posts_path
 

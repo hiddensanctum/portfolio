@@ -3,7 +3,7 @@ require "test_helper"
 feature "editor editing a post" do
   scenario "editor edited a post" do
     # Log in
-    sign_in(:one)
+    sign_in(:ed)
     # Create a post
     visit post_path(posts(:one))
 

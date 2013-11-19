@@ -2,7 +2,7 @@ require "test_helper"
 
 feature "Approves a comment" do
   scenario "editor approved a comment" do
-    sign_in(:one)
+    sign_in(:ed)
 
     visit post_path(posts(:one))
 
@@ -20,7 +20,7 @@ feature "Approves a comment" do
     page.text.wont_include "Approve"
   end
   scenario "author approved a comment" do
-    sign_in(:two)
+    sign_in(:au)
 
     visit post_path(posts(:one))
 

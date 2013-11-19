@@ -3,7 +3,7 @@ require "test_helper"
 feature "editor creating a post" do
  scenario "editor made a new post" do
   # Given an authorized user complets a new post form
-  sign_in(:one)
+  sign_in(:ed)
 
   # Given a completed post form
   visit new_post_path
@@ -22,6 +22,6 @@ feature "editor creating a post" do
 
   # checks to see if there is an author
   page.has_css? "#author"
-  page.text.must_include users(:one).email
+  page.text.must_include users(:ed).email
   end
 end

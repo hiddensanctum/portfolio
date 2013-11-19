@@ -3,7 +3,7 @@ require "test_helper"
 feature "author deleting a post" do
   scenario "author deletes the post" do
     # Sign in as an author
-    sign_in(:two)
+    sign_in(:au)
 
     # Visit post index page
     visit posts_path

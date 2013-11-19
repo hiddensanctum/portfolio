@@ -11,6 +11,7 @@ gem 'pundit'
 gem 'omniauth-twitter'
 gem 'figaro'
 gem 'bootstrap-wysihtml5-rails'
+gem 'carrierwave'
 
 group :production do
   gem 'rails_12factor'
@@ -21,10 +22,12 @@ group :development, :test do
   gem 'launchy'
   gem 'minitest-rails'
   gem 'minitest-rails-capybara'
+  gem 'capybara-webkit'
   gem "turn"
   gem 'sqlite3'
   gem 'simplecov', :require => false
   gem 'pry-rails'
+  gem 'database_cleaner'
 end
 
 # Gems used only for assets and not required

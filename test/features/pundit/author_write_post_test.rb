@@ -3,7 +3,7 @@ require "test_helper"
 feature "author creating a post" do
  scenario "author creates a new post" do
   # Sign in as an author
-  sign_in(:two)
+  sign_in(:au)
 
   # Given a completed post form
   visit new_post_path

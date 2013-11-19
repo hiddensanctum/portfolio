@@ -3,7 +3,7 @@ require "test_helper"
 feature "editor deleting a post" do
   scenario "editor delete the post" do
     # Sign in as an editor
-    sign_in(:one)
+    sign_in(:ed)
 
     # Visit post index page
     visit posts_path

@@ -2,6 +2,7 @@ require "test_helper"
 
 feature "Auth::SignUp" do
   scenario "Sign up works fine" do
+    pending #users are not longer able to sign into my portfolio
     visit root_path
 
     # Click on registration form

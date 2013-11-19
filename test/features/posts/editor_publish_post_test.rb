@@ -3,7 +3,7 @@ require "test_helper"
 feature "editor publish a post" do
   scenario "editor publishes a post" do
     # sign in as editor
-    sign_in(:one)
+    sign_in(:ed)
     # navigate to main index of blog
     visit posts_path
 

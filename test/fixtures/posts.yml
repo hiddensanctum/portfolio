@@ -1,17 +1,17 @@
 one:
   title: Code Fellows
   body: Its a good day for rails
-  author: one
+  author: ed
   published: true
 
 two:
   title: I love cats and dogs
   body: Cats and Dogs will rule the world
-  author: two
+  author: au
   published: true
 
 three:
   title: Dr Seuss
   body: Green Eggs and Ham
-  author: two
+  author: au
   published: false
