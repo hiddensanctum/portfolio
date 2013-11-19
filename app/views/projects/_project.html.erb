@@ -1,6 +1,6 @@
 <div class="row" id="<%= dom_id(project) %>">
   <div class="col-lg-7 col-md-7">
-<!--     <img class="img-responsive" src= <%= "/assets/" + project.id.to_s + ".png" %>> -->
+    <%= image_tag project.image_url.to_s, :class => 'img-responsive' %>
   </div>
   <div class="col-lg-5 col-md-5">
     <h3><%= link_to project.name, project %></h3>
