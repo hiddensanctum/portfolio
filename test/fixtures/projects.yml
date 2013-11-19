@@ -1,7 +1,9 @@
 cf:
   name: Code Fellows Portfolio
   technologies_used: Ruby on Rails
+  image: test.jpg
 
 wd:
   name: World Domination
   technologies_used: Cats
+  image: test.jpg

@@ -31,6 +31,8 @@ group :development, :test do
   gem 'simplecov', :require => false
   gem 'pry-rails'
   gem 'database_cleaner'
+  gem 'jasmine'
+  gem 'jasmine-jquery-rails'
 end
 
 # Gems used only for assets and not required

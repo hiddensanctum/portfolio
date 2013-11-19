@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
+  run = true
 
   def index
     @projects = Project.all

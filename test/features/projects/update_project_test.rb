@@ -12,28 +12,29 @@ feature "As the site owner, I want to edit a project so that I can correct typos
       click_link("Edit", href: "/projects/729307280/edit")
 
       # When I make changes
+      page.find('#project_name')
 
-      fill_in "Name", with: "My Rad Portfolio"
+      fill_in("Name", with: "My Rad Portfolio")
       fill_in "Technologies used", with: "Code Fellows Portfolio"
-      click_on "Update Project"
-      save_and_open_page
+      find_button('Update Project').click
+
 
       # Then the changes should be saved and shown
       page.text.must_include "Rad Portfolio"
-      save_and_open_page
       page.text.must_include "Code Fellows Portfolio"
     end
-    scenario "incorrectly editing an existing project" do
+    scenario "incorrectly editing an existing project", js: true  do
       # Sign in as an editor
-      #sign_in(:one)
-      pending
+      sign_in(:ed)
 
       visit projects_path
-      click_link("Edit", href: "/projects/298486374/edit")
+      click_link("Edit", href: "/projects/729307280/edit")
+
+      page.find('#project_name')
       fill_in "Name", with: "Q"
 
       click_on "Update Project"
-
-      page.text.must_include "Name is too short"
+      page.find('#project_name')
+      page.text.wont_include "Q"
     end
   end

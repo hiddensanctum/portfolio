@@ -22,7 +22,7 @@ def sign_in(u)
   click_on "Sign in"
 end
 
-DatabaseCleaner.strategy = :transaction
+DatabaseCleaner.strategy = :truncation
 
 class ActiveSupport::TestCase
   self.use_transactional_fixtures = false
