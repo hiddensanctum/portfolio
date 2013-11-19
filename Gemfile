@@ -14,6 +14,7 @@ gem 'bootstrap-wysihtml5-rails'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'fog'
+gem 'unf'
 
 group :production do
   gem 'rails_12factor'
