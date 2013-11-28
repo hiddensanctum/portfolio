@@ -15,6 +15,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'fog'
 gem 'unf'
+gem 'browser-timezone-rails'
 
 group :production do
   gem 'rails_12factor'
@@ -33,6 +34,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'jasmine'
   gem 'jasmine-jquery-rails'
+  gem 'brakeman'
 end
 
 # Gems used only for assets and not required

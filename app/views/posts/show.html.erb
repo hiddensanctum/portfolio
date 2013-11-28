@@ -6,6 +6,9 @@
       <p id="author">
         <b>By:</b>
         <%= @post.author.email %>
+        <br/>
+        <b>Date:</b>
+        <%= l @post.created_at, format: :short %>
       </p>
       <p>
         <b>Body:</b><br />

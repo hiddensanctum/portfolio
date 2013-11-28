@@ -1,11 +1,10 @@
 #Personal Portfolio Site
 
-[![Build Status](https://travis-ci.org/hiddensanctum/portfolio.png?branch=master)](https://travis-ci.org/hiddensanctum/portfolio)
-
 * By James Chuang
 * Rails Version 3.2.14
 
 ##Description
+This is my personal portfolio site and is a work in progress
 
 ##Incorporated Gems
 *
