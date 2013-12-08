@@ -225,6 +225,9 @@ GEM
       rubyzip (~> 1.0.0)
       websocket (~> 1.0.4)
     sexp_processor (4.4.0)
+    simple_form (2.1.1)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
     simplecov (0.7.1)
       multi_json (~> 1.0)
       simplecov-html (~> 0.7.1)
@@ -291,6 +294,7 @@ DEPENDENCIES
   rails_12factor
   rmagick
   sass-rails (~> 3.2.3)
+  simple_form
   simplecov
   sqlite3
   turn

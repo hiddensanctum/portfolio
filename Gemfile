@@ -16,6 +16,7 @@ gem 'rmagick'
 gem 'fog'
 gem 'unf'
 gem 'browser-timezone-rails'
+gem 'simple_form'
 
 group :production do
   gem 'rails_12factor'

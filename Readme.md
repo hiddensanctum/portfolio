@@ -17,6 +17,13 @@ There are currently no known issues.
 
 ##Screenshots
 ![ScreenShot](/app/assets/images/screenshot.png)
+Change Date to more readable format:
+![ScreenShot](/app/assets/images/I18n.png)
+Change Date based upon locale
+![ScreenShot](/app/assets/images/locale.png)
+Add Simple form with Bootstrap 3
+![ScreenShot](/app/assets/images/simple.png)
+![ScreenShot](/app/assets/images/form.png)
 
 ## Contributing
 
